@@ -1,0 +1,15 @@
+FROM python:3
+
+# Install python requirements
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r requirements.txt
+
+# Copy necessary project files
+COPY ./dutch-east-indies /dutch-east-indies
+ENV PYTHONPATH "${PYTHONPATH}:/dutch-east-indies"
+
+# Add volume binds
+VOLUME ["/data/books"]
+VOLUME ["/data/processed"]
+
+ENTRYPOINT ["python", "/dutch-east-indies/cmd/convert.py"]

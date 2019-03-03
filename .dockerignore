@@ -1,0 +1,6 @@
+/data
+/env
+/examples
+/deployments
+/docker-compose.yaml
+/.gitignore
